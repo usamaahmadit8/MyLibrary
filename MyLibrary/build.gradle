@@ -48,15 +48,28 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
-publishing {
-    publications {
-        release(MavenPublication) {
-            groupId = 'com.github.usamaahmadit8'
-            artifactId = 'MyLibrary'
-            version = '1.0'
-
-            afterEvaluate {
-                from components.getByName('release')
+//publishing {
+//    publications {
+//        release(MavenPublication) {
+//            groupId = 'com.github.usamaahmadit8'
+//            artifactId = 'MyLibrary'
+//            version = '1.0'
+//
+//            afterEvaluate {
+//                from components.getByName('release')
+//            }
+//        }
+//    }
+//}
+afterEvaluate {
+    publishing {
+        publications {
+// Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.usamaahmadit8'
+                artifactId = 'MyLibrary'
+                version = '1.1'
             }
         }
     }

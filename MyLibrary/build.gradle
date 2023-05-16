@@ -61,6 +61,10 @@ dependencies {
 //        }
 //    }
 //}
+
+
+apply plugin: 'maven-publish'
+
 afterEvaluate {
     publishing {
         publications {
